@@ -15,16 +15,6 @@
         <div class="row" style="line-height: 100px;">
             <div class="col" style="text-align: center;">It will auto copy to your clipboard</div>
         </div>
-        <div class="row" style="line-height: 100px;">
-            <div class="col" style="text-align: center;">
-                Select language: 
-                <select id="lang">
-                    <option value="http://hkdhkautp01.hktb.local:4502/mnt/overlay/wcm/core/content/sites/properties.html?item=%2Fcontent%2Fdhk%2Fintl%2Fen%2Finteractive-map%2F">en</option>
-                    <option value="http://hkdhkautp01.hktb.local:4502/mnt/overlay/wcm/core/content/sites/properties.html?item=%2Fcontent%2Fdhk%2Ftc%2Fzh_tc%2Finteractive-map%2F">zh_tc</option>
-                    <option value="http://hkdhkautp01.hktb.local:4502/mnt/overlay/wcm/core/content/sites/properties.html?item=%2Fcontent%2Fdhk%2Fcn%2Fzh_sc%2Finteractive-map%2F">zh_sc</option>
-                </select>
-            </div>
-        </div>
         <div class="row" style="width: fit-content; margin: auto;">
             <div class="col">
                 <div style="width: fit-content;">
@@ -43,12 +33,11 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
         $("#original").keyup(function(){
-            var selectedLang = document.getElementById("lang").value;
             var str = $(this).val();
             var trims = $.trim(str);
             var slug = trims.replace(/[^a-z0-9]/gi, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
             $("#sluged").val(slug.toLowerCase());
-            copyToClipboard(selectedLang + slug.toLowerCase());
+            copyToClipboard(slug.toLowerCase());
         });
 
         $("#original").click(function(){
